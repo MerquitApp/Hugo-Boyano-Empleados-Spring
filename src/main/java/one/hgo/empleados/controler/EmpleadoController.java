@@ -26,7 +26,7 @@ public class EmpleadoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Empleado> getEmpleadoById(@RequestParam("id") Long id) {
+    public ResponseEntity<Empleado> getEmpleadoById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(Objects.requireNonNull(empleadoRepository.findById(id).orElse(null)));
     }
 
@@ -49,12 +49,12 @@ public class EmpleadoController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Empleado> updateEmpleado(@RequestParam("id") Long id) {
+    public ResponseEntity<Empleado> updateEmpleado(@PathVariable("id") Long id) {
         return ResponseEntity.ok(empleadoRepository.findById(id).orElse(null));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Empleado> deleteEmpleado(@RequestParam("id") Long id) {
+    public ResponseEntity<Empleado> deleteEmpleado(@PathVariable("id") Long id) {
         return ResponseEntity.ok(empleadoRepository.findById(id).orElse(null));
     }
 }
